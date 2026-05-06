@@ -1,0 +1,19 @@
+# Nova Media Player — Python dependencies
+# Install with:  pip install -r requirements.txt
+
+# GUI framework
+PyQt6>=6.6.0
+
+# Media playback (also requires VLC to be installed: https://www.videolan.org)
+python-vlc>=3.0.18122
+
+# AI subtitle generation (offline, no API key needed)
+# Also requires ffmpeg on PATH: https://ffmpeg.org/download.html
+openai-whisper>=20231117
+
+# Image support (RAW, HEIC, PSD, and 50+ formats beyond Qt's built-ins)
+Pillow>=10.0.0
+
+# Whisper dependency (usually installed automatically)
+torch>=2.0.0
+torchaudio>=2.0.0
