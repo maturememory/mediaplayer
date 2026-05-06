@@ -50,6 +50,33 @@ winget install ffmpeg
 Option B: Download from https://github.com/BtbN/FFmpeg-Builds/releases,
 extract, and add the `bin` folder to your system PATH.
 
+
+### Build a single Windows `.exe` installer
+
+A Windows installer build is now included. It creates a normal Program Files
+installation with Start menu shortcuts, an uninstaller, optional desktop shortcut,
+and Windows "Open with" registration for supported media files.
+
+Prerequisites on the build machine:
+
+1. 64-bit Python 3.10+
+2. Inno Setup 6 (`winget install JRSoftware.InnoSetup`)
+
+On Windows, run:
+
+```bat
+build_installer.bat
+```
+
+The script creates a PyInstaller application bundle, then packages it into:
+
+```text
+dist\installer\NovaMediaPlayerSetup-1.0.0.exe
+```
+
+The installed app still expects VLC for playback and FFmpeg for AI subtitle
+extraction. The installer offers post-install download links for both.
+
 ### Step 3 — Install Python packages
 Double-click **`install.bat`**, or run manually:
 ```

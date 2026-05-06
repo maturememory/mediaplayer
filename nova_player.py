@@ -62,6 +62,10 @@ AUDIO_EXTS = {
     '.wv', '.tta', '.caf', '.mid', '.midi', '.alac', '.spx', '.tak',
     '.mpc', '.mp2', '.gsm', '.au', '.snd'
 }
+APP_NAME = "Nova Media Player"
+APP_VERSION = "1.0.0"
+APP_ORG = "Nova"
+
 IMAGE_EXTS = {
     '.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.tiff', '.tif',
     '.ico', '.heic', '.heif', '.avif', '.psd', '.raw', '.cr2', '.nef',
@@ -313,7 +317,7 @@ class NovaPlayer(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Nova Media Player")
+        self.setWindowTitle(APP_NAME)
         self.setMinimumSize(820, 560)
         self.resize(1120, 700)
 
@@ -948,7 +952,15 @@ def main():
             pass
 
     app = QApplication(sys.argv)
-    app.setApplicationName("Nova Media Player")
+    app.setApplicationName(APP_NAME)
+    app.setApplicationVersion(APP_VERSION)
+    app.setOrganizationName(APP_ORG)
+    if sys.platform == 'win32':
+        try:
+            import ctypes
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(f"{APP_ORG}.NovaMediaPlayer.{APP_VERSION}")
+        except Exception:
+            pass
     app.setStyle("Fusion")
 
     # Dark palette
